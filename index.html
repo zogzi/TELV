@@ -9,7 +9,7 @@
             margin: 0;
             background-color: black;
             color: white;
-            font-family: Arial, sans-serif;
+            font-family: "Helvetica Neue", Arial, sans-serif;
             text-align: center;
             display: flex;
             flex-direction: column;
@@ -19,23 +19,41 @@
         }
         h1 {
             margin: 10px 0;
-            font-size: 3rem;
-        }
-        img {
-            max-width: 150px;
-            margin-bottom: 20px;
-        }
-        #countdown {
-            font-size: 2rem;
+            font-size: 4rem;
             letter-spacing: 2px;
         }
-        span {
-            display: inline-block;
-            min-width: 50px;
+        img {
+            max-width: 200px;
+            margin-bottom: 30px;
+        }
+        #countdown {
+            display: flex;
+            gap: 20px;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        .time-unit {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .number {
+            font-size: 3rem;
+            padding: 10px 20px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #00ffff;
+            min-width: 70px;
             text-align: center;
         }
+        .label {
+            margin-top: 5px;
+            font-size: 1rem;
+            color: #888;
+            text-transform: uppercase;
+        }
         footer {
-            margin-top: 30px;
+            margin-top: 40px;
             font-size: 0.8rem;
             color: #555;
         }
@@ -45,19 +63,32 @@
     <img src="logo.png" alt="TELV Logo">
     <h1>TELV</h1>
     <div id="countdown">
-        <span id="days">0</span>d :
-        <span id="hours">0</span>h :
-        <span id="minutes">0</span>m :
-        <span id="seconds">0</span>s
+        <div class="time-unit">
+            <div id="days" class="number">0</div>
+            <div class="label">Days</div>
+        </div>
+        <div class="time-unit">
+            <div id="hours" class="number">0</div>
+            <div class="label">Hours</div>
+        </div>
+        <div class="time-unit">
+            <div id="minutes" class="number">0</div>
+            <div class="label">Minutes</div>
+        </div>
+        <div class="time-unit">
+            <div id="seconds" class="number">0</div>
+            <div class="label">Seconds</div>
+        </div>
     </div>
     <footer>&copy; 2025 TELV</footer>
 
     <script>
         function updateCountdown() {
             const now = new Date();
-            const currentYear = now.getFullYear();
-            const nextNewYear = new Date(`January 1, ${currentYear + 1} 00:00:00`);
-            const timeLeft = nextNewYear - now;
+            const gmtPlusTwo = new Date(now.getTime() + (2 * 60 * 60 * 1000)); // Convert to GMT+2
+            const currentYear = gmtPlusTwo.getFullYear();
+            const nextNewYear = new Date(`January 1, ${currentYear + 1} 00:00:00 GMT+0200`);
+            const timeLeft = nextNewYear - gmtPlusTwo;
 
             // Calculate time components
             const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
@@ -78,3 +109,4 @@
     </script>
 </body>
 </html>
+
