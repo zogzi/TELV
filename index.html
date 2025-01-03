@@ -22,12 +22,11 @@
         .main-logo {
             width: 180px;
             height: auto;
-            margin-bottom: 40px;
+            margin-bottom: 20px; /* Spacing between logo and countdown */
         }
 
         .container {
             text-align: center;
-            position: relative;
         }
 
         #countdown {
@@ -37,7 +36,7 @@
             font-weight: bold;
             flex-wrap: wrap;
             justify-content: center;
-            margin-bottom: 70px;
+            margin-bottom: 30px;  /* Space between countdown and social icons */
         }
 
         .time-unit {
@@ -70,7 +69,8 @@
             display: flex;
             gap: 40px;
             justify-content: center;
-            margin-top: 50px;
+            position: absolute;
+            bottom: 40px;
         }
 
         .social-icons a {
@@ -95,7 +95,7 @@
             }
 
             #countdown {
-                gap: 10px;
+                gap: 15px;
             }
 
             .label {
@@ -109,6 +109,10 @@
             .social-icons svg {
                 width: 35px;
                 height: 35px;
+            }
+
+            .social-icons {
+                bottom: 20px;
             }
         }
     </style>
