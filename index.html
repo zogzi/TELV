@@ -29,6 +29,11 @@
             font-size: 2rem;
             letter-spacing: 2px;
         }
+        span {
+            display: inline-block;
+            min-width: 50px;
+            text-align: center;
+        }
         footer {
             margin-top: 30px;
             font-size: 0.8rem;
@@ -39,30 +44,37 @@
 <body>
     <img src="logo.png" alt="TELV Logo">
     <h1>TELV</h1>
-    <p id="countdown">Loading countdown...</p>
+    <div id="countdown">
+        <span id="days">0</span>d :
+        <span id="hours">0</span>h :
+        <span id="minutes">0</span>m :
+        <span id="seconds">0</span>s
+    </div>
     <footer>&copy; 2025 TELV</footer>
 
     <script>
         function updateCountdown() {
-            const newYear = new Date('January 1, 2025 00:00:00').getTime();
-            const now = new Date().getTime();
-            const timeLeft = newYear - now;
+            const now = new Date();
+            const currentYear = now.getFullYear();
+            const nextNewYear = new Date(`January 1, ${currentYear + 1} 00:00:00`);
+            const timeLeft = nextNewYear - now;
 
-            if (timeLeft <= 0) {
-                document.getElementById('countdown').innerHTML = "Happy New Year!";
-                return;
-            }
-
+            // Calculate time components
             const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
             const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-            document.getElementById('countdown').innerHTML =
-                `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            // Update the countdown numbers
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours;
+            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('seconds').textContent = seconds;
         }
 
+        // Update countdown every second
         setInterval(updateCountdown, 1000);
+        updateCountdown(); // Initialize immediately
     </script>
 </body>
 </html>
