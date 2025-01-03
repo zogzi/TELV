@@ -17,24 +17,23 @@
             justify-content: center;
             height: 100vh;
             overflow: hidden;
-            position: relative;
         }
+
         .corner-logo {
             position: fixed;
-            top: 15%;
-            left: 50%;
-            width: 80px;
-            height: 80px;
-            transform: translateX(-50%);
+            top: 20px;
+            left: 20px;
+            width: 60px;
+            height: 60px;
             z-index: 1000;
-            opacity: 0.95;
         }
+
         .container {
             text-align: center;
             position: relative;
             max-width: 90%;
-            margin-top: 160px;
         }
+
         #countdown {
             display: flex;
             gap: 15px;
@@ -43,11 +42,13 @@
             flex-wrap: wrap;
             justify-content: center;
         }
+
         .time-unit {
             display: flex;
             flex-direction: column;
             align-items: center;
         }
+
         .number {
             font-size: 3rem;
             padding: 10px 15px;
@@ -56,28 +57,42 @@
             color: white;
             min-width: 60px;
         }
+
         .label {
             font-size: 1rem;
             margin-top: 5px;
             color: #bbb;
         }
+
         footer {
             margin-top: 20px;
             font-size: 0.8rem;
             color: #555;
         }
-        .twitter-icon {
+
+        /* Social Icons */
+        .twitter-icon, .discord-icon {
             position: absolute;
             bottom: 30px;
             width: 30px;
             height: 30px;
             opacity: 0.8;
             cursor: pointer;
+            transition: opacity 0.3s ease;
         }
-        .twitter-icon:hover {
+
+        .twitter-icon {
+            left: 30px; /* Adjust this to position Twitter on the left */
+        }
+
+        .discord-icon {
+            left: 80px; /* Adjust this to position Discord next to Twitter */
+        }
+
+        .twitter-icon:hover, .discord-icon:hover {
             opacity: 1;
         }
-        
+
         /* Mobile Styles */
         @media (max-width: 600px) {
             .number {
@@ -85,24 +100,34 @@
                 min-width: 50px;
                 padding: 8px 10px;
             }
+
             #countdown {
                 gap: 10px;
             }
+
             .label {
                 font-size: 0.9rem;
             }
+
             .corner-logo {
-                width: 70px;
-                height: 70px;
-                top: 12%;
+                width: 50px;
+                height: 50px;
+                top: 10px;
+                left: 10px;
             }
-            .container {
-                margin-top: 120px;
-            }
+
             .twitter-icon {
+                bottom: 20px;
+                left: 20px;
                 width: 25px;
                 height: 25px;
+            }
+
+            .discord-icon {
                 bottom: 20px;
+                left: 60px;
+                width: 25px;
+                height: 25px;
             }
         }
     </style>
@@ -131,9 +156,14 @@
         <footer>&copy; 2025 TELV</footer>
     </div>
 
-    <!-- Twitter Icon -->
+    <!-- Social Icons -->
     <a href="https://x.com/TELV28" target="_blank">
-        <img src="https://abs.twimg.com/responsive-web/client-web/icon-ios.77d25eba.png" alt="Twitter Icon" class="twitter-icon">
+        <img src="https://abs.twimg.com/responsive-web/client-web/icon-ios.77d25eba.png" 
+        alt="Twitter Icon" class="twitter-icon">
+    </a>
+    <a href="https://discord.gg/86kmeZfnZ9" target="_blank">
+        <img src="https://discord.com/assets/dd8b3c7d6f12b9f55aa0.png" 
+        alt="Discord Icon" class="discord-icon">
     </a>
 
     <script>
