@@ -14,29 +14,32 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start;
+            justify-content: center;
             height: 100vh;
             overflow: hidden;
-            text-align: center;
         }
         .corner-logo {
-            position: absolute;
-            top: 30%;
+            position: fixed;  /* Keep logo fixed during zoom */
+            top: 15%;
             left: 50%;
-            width: 140px;
-            height: 140px;
-            transform: translate(-50%, -50%);
-            z-index: 10;
-            opacity: 0.9;
+            width: 80px;
+            height: 80px;
+            transform: translateX(-50%); /* Center horizontally */
+            z-index: 1000;  /* Ensure it stays on top */
+            opacity: 0.95;
         }
         .container {
-            margin-top: 220px;
+            text-align: center;
+            position: relative;
+            max-width: 90%;  /* Prevent content overflow on smaller screens */
+            margin-top: 160px;
         }
         #countdown {
             display: flex;
-            gap: 20px;
-            font-size: 1.8rem;
+            gap: 15px;
+            font-size: 1.5rem;
             font-weight: bold;
+            flex-wrap: wrap;  /* Allow the countdown to wrap on smaller screens */
             justify-content: center;
         }
         .time-unit {
@@ -45,43 +48,44 @@
             align-items: center;
         }
         .number {
-            font-size: 3.5rem;
-            padding: 10px 20px;
-            border-radius: 10px;
+            font-size: 3rem;
+            padding: 10px 15px;
+            border-radius: 8px;
             background: rgba(255, 255, 255, 0.1);
-            min-width: 70px;
+            color: white;
+            min-width: 60px;
         }
         .label {
-            font-size: 1.1rem;
+            font-size: 1rem;
             margin-top: 5px;
             color: #bbb;
         }
         footer {
-            margin-top: 30px;
-            font-size: 0.9rem;
-            color: #666;
+            margin-top: 20px;
+            font-size: 0.8rem;
+            color: #555;
         }
-
-        /* Mobile Responsive Styling */
+        
+        /* Mobile Styles */
         @media (max-width: 600px) {
-            .corner-logo {
-                width: 100px;
-                height: 100px;
-                top: 25%;
-            }
-            .container {
-                margin-top: 150px;
+            .number {
+                font-size: 2rem;
+                min-width: 50px;
+                padding: 8px 10px;
             }
             #countdown {
                 gap: 10px;
-                font-size: 1.3rem;
-            }
-            .number {
-                font-size: 2.5rem;
-                min-width: 50px;
             }
             .label {
-                font-size: 1rem;
+                font-size: 0.9rem;
+            }
+            .corner-logo {
+                width: 70px;
+                height: 70px;
+                top: 12%;
+            }
+            .container {
+                margin-top: 120px;
             }
         }
     </style>
