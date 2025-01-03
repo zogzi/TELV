@@ -14,7 +14,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
             height: 100vh;
             overflow: hidden;
         }
@@ -31,7 +31,6 @@
         .container {
             text-align: center;
             position: relative;
-            margin-top: 100px;
         }
 
         #countdown {
@@ -65,7 +64,7 @@
         }
 
         footer {
-            margin-bottom: 50px;
+            margin-top: 20px;
             font-size: 1rem;
             color: #555;
         }
@@ -75,21 +74,21 @@
             gap: 40px;
             justify-content: center;
             position: absolute;
-            bottom: 40px;
+            bottom: 30px;
         }
 
         .social-icons a {
             text-decoration: none;
         }
 
-        .social-icons svg {
+        .social-icons img {
             width: 40px;
             height: 40px;
-            fill: #fff;
+            filter: invert(100%);
             transition: transform 0.3s;
         }
 
-        .social-icons svg:hover {
+        .social-icons img:hover {
             transform: scale(1.2);
         }
 
@@ -114,7 +113,7 @@
                 left: 20px;
             }
 
-            .social-icons svg {
+            .social-icons img {
                 width: 30px;
                 height: 30px;
             }
@@ -150,15 +149,11 @@
     <!-- Social Icons Section -->
     <div class="social-icons">
         <a href="https://discord.gg/86kmeZfnZ9" target="_blank" title="Join Discord">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path d="M20.317 4.369a19.785 19.785 0 00-4.885-1.505.074.074 0 00-.079.037c-.211.376-.445.864-.61 1.247-1.844-.276-3.683-.276-5.515 0a15.642 15.642 0 00-.619-1.247.078.078 0 00-.079-.037A19.736 19.736 0 003.681 4.369a.07.07 0 00-.032.028C.533 9.175-.325 13.902.061 18.572a.081.081 0 00.031.056c2.051 1.512 4.066 2.422 6.083 3.051a.077.077 0 00.084-.028 14.763 14.763 0 001.28-2.08.075.075 0 00-.041-.104 10.083 10.083 0 01-1.348-.648z"/>
-            </svg>
+            <img src="https://cdn-icons-png.flaticon.com/512/5968/5968899.png" alt="Discord Icon">
         </a>
 
         <a href="https://x.com/TELV28" target="_blank" title="Follow on X">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path d="M23.953 4.57a10.009 10.009 0 01-2.825.775 4.95 4.95 0 002.163-2.724 9.978 9.978 0 01-3.127 1.184 4.92 4.92 0 00-8.384 4.482A13.978 13.978 0 011.671 3.149a4.92 4.92 0 001.523 6.573 4.935 4.935 0 01-2.229-.615v.061a4.924 4.924 0 003.946 4.827 4.897 4.897 0 01-2.224.084 4.92 4.92 0 004.6 3.417 9.867 9.867 0 01-6.102 2.104 10.08 10.08 0 01-1.169-.068 13.955 13.955 0 007.548 2.209c9.056 0 14.01-7.5 14.01-14v-.64A9.936 9.936 0 0024 4.59z"/>
-            </svg>
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="X Icon">
         </a>
     </div>
 
