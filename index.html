@@ -26,11 +26,7 @@
         }
         .container {
             text-align: center;
-        }
-        #countdown-title {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: #ccc;
+            position: relative;
         }
         #countdown {
             display: flex;
@@ -58,6 +54,16 @@
             color: #bbb;
             text-transform: uppercase;
         }
+        .telv-text {
+            position: absolute;
+            bottom: 20px;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ddd;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            opacity: 0.5;
+        }
         footer {
             margin-top: 20px;
             font-size: 0.8rem;
@@ -68,7 +74,6 @@
 <body>
     <img src="logo.png" alt="TELV Logo" class="corner-logo">
     <div class="container">
-        <div id="countdown-title">Countdown to New Year's Day</div>
         <div id="countdown">
             <div class="time-unit">
                 <div id="days" class="number">0</div>
@@ -87,6 +92,7 @@
                 <div class="label">Seconds</div>
             </div>
         </div>
+        <div class="telv-text">TELV</div>
         <footer>&copy; 2025 TELV</footer>
     </div>
 
