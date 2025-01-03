@@ -18,114 +18,87 @@
             height: 100vh;
             overflow: hidden;
         }
-
         .corner-logo {
             position: fixed;
-            top: 20px;
-            left: 20px;
-            width: 60px;
-            height: 60px;
+            top: 30px;
+            left: 30px;
+            width: 70px;
+            height: 70px;
             z-index: 1000;
         }
-
         .container {
             text-align: center;
             position: relative;
             max-width: 90%;
         }
-
         #countdown {
             display: flex;
-            gap: 15px;
-            font-size: 1.5rem;
+            gap: 20px;
+            font-size: 1.8rem;
             font-weight: bold;
             flex-wrap: wrap;
             justify-content: center;
         }
-
         .time-unit {
             display: flex;
             flex-direction: column;
             align-items: center;
         }
-
         .number {
-            font-size: 3rem;
-            padding: 10px 15px;
-            border-radius: 8px;
+            font-size: 3.5rem;
+            padding: 15px 20px;
+            border-radius: 10px;
             background: rgba(255, 255, 255, 0.1);
-            color: white;
-            min-width: 60px;
+            min-width: 70px;
         }
-
         .label {
             font-size: 1rem;
             margin-top: 5px;
             color: #bbb;
         }
-
         footer {
-            margin-top: 20px;
-            font-size: 0.8rem;
+            margin-top: 30px;
+            font-size: 0.9rem;
             color: #555;
         }
-
-        /* Social Icons */
-        .twitter-icon, .discord-icon {
-            position: absolute;
-            bottom: 30px;
+        .social-icons {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+        .social-icons a {
+            text-decoration: none;
+        }
+        .social-icons svg {
             width: 30px;
             height: 30px;
-            opacity: 0.8;
-            cursor: pointer;
-            transition: opacity 0.3s ease;
+            fill: #fff;
+            transition: transform 0.3s;
+        }
+        .social-icons svg:hover {
+            transform: scale(1.1);
         }
 
-        .twitter-icon {
-            left: 30px; /* Adjust this to position Twitter on the left */
-        }
-
-        .discord-icon {
-            left: 80px; /* Adjust this to position Discord next to Twitter */
-        }
-
-        .twitter-icon:hover, .discord-icon:hover {
-            opacity: 1;
-        }
-
-        /* Mobile Styles */
         @media (max-width: 600px) {
             .number {
-                font-size: 2rem;
-                min-width: 50px;
-                padding: 8px 10px;
+                font-size: 2.5rem;
+                min-width: 60px;
+                padding: 10px 15px;
             }
-
             #countdown {
                 gap: 10px;
             }
-
             .label {
                 font-size: 0.9rem;
             }
-
             .corner-logo {
-                width: 50px;
-                height: 50px;
-                top: 10px;
-                left: 10px;
-            }
-
-            .twitter-icon {
-                bottom: 20px;
+                width: 60px;
+                height: 60px;
+                top: 20px;
                 left: 20px;
-                width: 25px;
-                height: 25px;
             }
-
-            .discord-icon {
-                bottom: 20px;
-                left: 60px;
+            .social-icons svg {
                 width: 25px;
                 height: 25px;
             }
@@ -154,39 +127,19 @@
             </div>
         </div>
         <footer>&copy; 2025 TELV</footer>
+
+        <div class="social-icons">
+            <a href="https://discord.gg/86kmeZfnZ9" target="_blank" title="Join Discord">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M20.317 4.369a19.785 19.785 0 00-4.885-1.505.074.074 0 00-.079.037c-.211.376-.445.864-.61 1.247-1.844-.276-3.683-.276-5.515 0a15.642 15.642 0 00-.619-1.247.078.078 0 00-.079-.037A19.736 19.736 0 003.681 4.369a.07.07 0 00-.032.028C.533 9.175-.325 13.902.061 18.572a.081.081 0 00.031.056c2.051 1.512 4.066 2.422 6.083 3.051a.077.077 0 00.084-.028 14.763 14.763 0 001.28-2.08.075.075 0 00-.041-.104 10.083 10.083 0 01-1.348-.648.077.077 0 01-.008-.126c.091-.069.182-.139.272-.21a.073.073 0 01.073-.015c2.852 1.302 5.912 1.302 8.747 0a.073.073 0 01.074.015c.09.071.181.141.272.21a.077.077 0 01-.008.126c-.433.235-.876.455-1.348.648a.075.075 0 00-.04.104 14.812 14.812 0 001.28 2.08.076.076 0 00.084.028c2.017-.629 4.032-1.539 6.083-3.051a.082.082 0 00.031-.056c.391-4.668-.528-9.397-3.588-14.175a.07.07 0 00-.032-.028z"/>
+                </svg>
+            </a>
+            <a href="https://x.com/TELV28" target="_blank" title="Follow on Twitter">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.32 4.32 0 001.89-2.38 8.59 8.59 0 01-2.73 1.04 4.29 4.29 0 00-7.29 3.92A12.15 12.15 0 012.43 4.73a4.29 4.29 0 001.33 5.73A4.27 4.27 0 012 9.78v.05a4.29 4.29 0 003.44 4.2 4.35 4.35 0 01-1.93.07 4.29 4.29 0 004 2.95A8.6 8.6 0 012 19.53 12.12 12.12 0 0010.29 22c7.7 0 11.91-6.37 11.91-11.91 0-.18 0-.36-.01-.54A8.56 8.56 0 0024 7.11a8.43 8.43 0 01-2.54.7z"/>
+                </svg>
+            </a>
+        </div>
     </div>
-
-    <!-- Social Icons -->
-    <a href="https://x.com/TELV28" target="_blank">
-        <img src="https://abs.twimg.com/responsive-web/client-web/icon-ios.77d25eba.png" 
-        alt="Twitter Icon" class="twitter-icon">
-    </a>
-    <a href="https://discord.gg/86kmeZfnZ9" target="_blank">
-        <img src="https://discord.com/assets/dd8b3c7d6f12b9f55aa0.png" 
-        alt="Discord Icon" class="discord-icon">
-    </a>
-
-    <script>
-        function updateCountdown() {
-            const now = new Date();
-            const gmtPlusTwo = new Date(now.getTime() + (2 * 60 * 60 * 1000));
-            const currentYear = gmtPlusTwo.getFullYear();
-            const nextNewYear = new Date(`January 1, ${currentYear + 1} 00:00:00 GMT+0200`);
-            const timeLeft = nextNewYear - gmtPlusTwo;
-
-            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-            document.getElementById('days').textContent = days;
-            document.getElementById('hours').textContent = hours;
-            document.getElementById('minutes').textContent = minutes;
-            document.getElementById('seconds').textContent = seconds;
-        }
-
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
-    </script>
 </body>
 </html>
