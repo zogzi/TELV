@@ -17,7 +17,142 @@
             justify-content: flex-start;
             height: 100vh;
             overflow: hidden;
+            text-align: center;<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TELV</title>
+    <link rel="icon" href="logo.png" type="image/png">
+    <style>
+        body {
+            margin: 0;
+            background-color: black;
+            color: white;
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .corner-logo {
+            position: fixed;  /* Keep logo fixed during zoom */
+            top: 20px;
+            left: 20px;
+            width: 60px;
+            height: 60px;
+            z-index: 1000;  /* Ensure it stays on top */
+        }
+        .container {
             text-align: center;
+            position: relative;
+            max-width: 90%;  /* Prevent content overflow on smaller screens */
+        }
+        #countdown {
+            display: flex;
+            gap: 15px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            flex-wrap: wrap;  /* Allow the countdown to wrap on smaller screens */
+            justify-content: center;
+        }
+        .time-unit {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .number {
+            font-size: 3rem;
+            padding: 10px 15px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            min-width: 60px;
+        }
+        .label {
+            font-size: 1rem;
+            margin-top: 5px;
+            color: #bbb;
+        }
+        footer {
+            margin-top: 20px;
+            font-size: 0.8rem;
+            color: #555;
+        }
+        
+        /* Mobile Styles */
+        @media (max-width: 600px) {
+            .number {
+                font-size: 2rem;
+                min-width: 50px;
+                padding: 8px 10px;
+            }
+            #countdown {
+                gap: 10px;
+            }
+            .label {
+                font-size: 0.9rem;
+            }
+            .corner-logo {
+                width: 50px;
+                height: 50px;
+                top: 10px;
+                left: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <img src="logo.png" alt="TELV Logo" class="corner-logo">
+    <div class="container">
+        <div id="countdown">
+            <div class="time-unit">
+                <div id="days" class="number">0</div>
+                <div class="label">Days</div>
+            </div>
+            <div class="time-unit">
+                <div id="hours" class="number">0</div>
+                <div class="label">Hours</div>
+            </div>
+            <div class="time-unit">
+                <div id="minutes" class="number">0</div>
+                <div class="label">Minutes</div>
+            </div>
+            <div class="time-unit">
+                <div id="seconds" class="number">0</div>
+                <div class="label">Seconds</div>
+            </div>
+        </div>
+        <footer>&copy; 2025 TELV</footer>
+    </div>
+
+    <script>
+        function updateCountdown() {
+            const now = new Date();
+            const gmtPlusTwo = new Date(now.getTime() + (2 * 60 * 60 * 1000));
+            const currentYear = gmtPlusTwo.getFullYear();
+            const nextNewYear = new Date(`January 1, ${currentYear + 1} 00:00:00 GMT+0200`);
+            const timeLeft = nextNewYear - gmtPlusTwo;
+
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours;
+            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('seconds').textContent = seconds;
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>
+
         }
         .corner-logo {
             position: absolute;
