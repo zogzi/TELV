@@ -19,19 +19,19 @@
             overflow: hidden;
         }
         .corner-logo {
-            position: fixed;  /* Keep logo fixed during zoom */
+            position: fixed;  
             top: 15%;
             left: 50%;
             width: 80px;
             height: 80px;
-            transform: translateX(-50%); /* Center horizontally */
-            z-index: 1000;  /* Ensure it stays on top */
+            transform: translateX(-50%); 
+            z-index: 1000;
             opacity: 0.95;
         }
         .container {
             text-align: center;
             position: relative;
-            max-width: 90%;  /* Prevent content overflow on smaller screens */
+            max-width: 90%;  
             margin-top: 160px;
         }
         #countdown {
@@ -39,7 +39,7 @@
             gap: 15px;
             font-size: 1.5rem;
             font-weight: bold;
-            flex-wrap: wrap;  /* Allow the countdown to wrap on smaller screens */
+            flex-wrap: wrap;
             justify-content: center;
         }
         .time-unit {
@@ -135,33 +135,6 @@
 
         setInterval(updateCountdown, 1000);
         updateCountdown();
-
-        // Pull-to-Refresh Implementation
-        let startY = 0;
-        let isPulling = false;
-
-        document.addEventListener('touchstart', (e) => {
-            if (window.scrollY === 0) {
-                startY = e.touches[0].pageY;
-                isPulling = true;
-            }
-        });
-
-        document.addEventListener('touchmove', (e) => {
-            if (isPulling) {
-                const currentY = e.touches[0].pageY;
-                const distance = currentY - startY;
-                
-                if (distance > 80) {  // Trigger refresh at 80px pull-down
-                    window.location.reload();
-                    isPulling = false;
-                }
-            }
-        });
-
-        document.addEventListener('touchend', () => {
-            isPulling = false;
-        });
     </script>
 </body>
 </html>
