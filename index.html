@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TELV</title> <!-- Changed title to just TELV -->
-    <link rel="icon" href="logo.png" type="image/png"> <!-- Adding the logo as the tab image -->
+    <title>TELV</title>
+    <link rel="icon" href="logo.png" type="image/png">
     <style>
         body {
             margin: 0;
@@ -19,21 +19,25 @@
             overflow: hidden;
         }
         .corner-logo {
-            position: absolute;
+            position: fixed;  /* Keep logo fixed during zoom */
             top: 20px;
             left: 20px;
-            width: 80px;
-            height: 80px;
+            width: 60px;
+            height: 60px;
+            z-index: 1000;  /* Ensure it stays on top */
         }
         .container {
             text-align: center;
             position: relative;
+            max-width: 90%;  /* Prevent content overflow on smaller screens */
         }
         #countdown {
             display: flex;
-            gap: 20px;
-            font-size: 2rem;
+            gap: 15px;
+            font-size: 1.5rem;
             font-weight: bold;
+            flex-wrap: wrap;  /* Allow the countdown to wrap on smaller screens */
+            justify-content: center;
         }
         .time-unit {
             display: flex;
@@ -41,16 +45,15 @@
             align-items: center;
         }
         .number {
-            font-size: 4rem;
-            padding: 10px 20px;
+            font-size: 3rem;
+            padding: 10px 15px;
             border-radius: 8px;
             background: rgba(255, 255, 255, 0.1);
             color: white;
-            min-width: 70px;
-            text-align: center;
+            min-width: 60px;
         }
         .label {
-            font-size: 1.2rem;
+            font-size: 1rem;
             margin-top: 5px;
             color: #bbb;
         }
@@ -58,6 +61,27 @@
             margin-top: 20px;
             font-size: 0.8rem;
             color: #555;
+        }
+        
+        /* Mobile Styles */
+        @media (max-width: 600px) {
+            .number {
+                font-size: 2rem;
+                min-width: 50px;
+                padding: 8px 10px;
+            }
+            #countdown {
+                gap: 10px;
+            }
+            .label {
+                font-size: 0.9rem;
+            }
+            .corner-logo {
+                width: 50px;
+                height: 50px;
+                top: 10px;
+                left: 10px;
+            }
         }
     </style>
 </head>
@@ -88,27 +112,24 @@
     <script>
         function updateCountdown() {
             const now = new Date();
-            const gmtPlusTwo = new Date(now.getTime() + (2 * 60 * 60 * 1000)); // Convert to GMT+2
+            const gmtPlusTwo = new Date(now.getTime() + (2 * 60 * 60 * 1000));
             const currentYear = gmtPlusTwo.getFullYear();
             const nextNewYear = new Date(`January 1, ${currentYear + 1} 00:00:00 GMT+0200`);
             const timeLeft = nextNewYear - gmtPlusTwo;
 
-            // Calculate time components
             const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
             const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-            // Update the countdown numbers
             document.getElementById('days').textContent = days;
             document.getElementById('hours').textContent = hours;
             document.getElementById('minutes').textContent = minutes;
             document.getElementById('seconds').textContent = seconds;
         }
 
-        // Update countdown every second
         setInterval(updateCountdown, 1000);
-        updateCountdown(); // Initialize immediately
+        updateCountdown();
     </script>
 </body>
 </html>
