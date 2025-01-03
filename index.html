@@ -17,21 +17,22 @@
             justify-content: center;
             height: 100vh;
             overflow: hidden;
+            position: relative;
         }
         .corner-logo {
-            position: fixed;  
+            position: fixed;
             top: 15%;
             left: 50%;
             width: 80px;
             height: 80px;
-            transform: translateX(-50%); 
+            transform: translateX(-50%);
             z-index: 1000;
             opacity: 0.95;
         }
         .container {
             text-align: center;
             position: relative;
-            max-width: 90%;  
+            max-width: 90%;
             margin-top: 160px;
         }
         #countdown {
@@ -65,6 +66,17 @@
             font-size: 0.8rem;
             color: #555;
         }
+        .twitter-icon {
+            position: absolute;
+            bottom: 30px;
+            width: 30px;
+            height: 30px;
+            opacity: 0.8;
+            cursor: pointer;
+        }
+        .twitter-icon:hover {
+            opacity: 1;
+        }
         
         /* Mobile Styles */
         @media (max-width: 600px) {
@@ -86,6 +98,11 @@
             }
             .container {
                 margin-top: 120px;
+            }
+            .twitter-icon {
+                width: 25px;
+                height: 25px;
+                bottom: 20px;
             }
         }
     </style>
@@ -113,6 +130,11 @@
         </div>
         <footer>&copy; 2025 TELV</footer>
     </div>
+
+    <!-- Twitter Icon -->
+    <a href="https://x.com/TELV28" target="_blank">
+        <img src="https://abs.twimg.com/responsive-web/client-web/icon-ios.77d25eba.png" alt="Twitter Icon" class="twitter-icon">
+    </a>
 
     <script>
         function updateCountdown() {
