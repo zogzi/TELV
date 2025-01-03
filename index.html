@@ -10,25 +10,46 @@
             background-color: black;
             color: white;
             font-family: "Helvetica Neue", Arial, sans-serif;
-            text-align: center;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .sidebar {
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            height: 100vh;
+            justify-content: center;
+            width: 20%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            box-sizing: border-box;
         }
-        h1 {
-            margin: 10px 0;
-            font-size: 4rem;
+        .sidebar img {
+            max-width: 100%;
+            max-height: 150px;
+            margin-bottom: 20px;
+        }
+        .sidebar h1 {
+            font-size: 1.5rem;
+            text-align: center;
             letter-spacing: 2px;
+            margin: 0;
         }
-        img {
-            max-width: 200px;
-            margin-bottom: 30px;
+        .main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 80%;
+            height: 100%;
         }
         #countdown {
             display: flex;
-            gap: 15px;
+            gap: 20px;
             font-size: 2rem;
             font-weight: bold;
         }
@@ -41,46 +62,50 @@
             font-size: 4rem;
             padding: 10px 20px;
             border-radius: 8px;
-            background: rgba(255, 255, 255, 0.1); /* Subtle contrast */
-            color: white; /* Pure white for numbers */
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
             min-width: 70px;
             text-align: center;
         }
         .label {
             margin-top: 5px;
             font-size: 1rem;
-            color: #bbb; /* Light gray for labels */
+            color: #bbb;
             text-transform: uppercase;
         }
         footer {
-            margin-top: 40px;
+            margin-top: 20px;
             font-size: 0.8rem;
             color: #555;
         }
     </style>
 </head>
 <body>
-    <img src="logo.png" alt="TELV Logo">
-    <h1>TELV</h1>
-    <div id="countdown">
-        <div class="time-unit">
-            <div id="days" class="number">0</div>
-            <div class="label">Days</div>
-        </div>
-        <div class="time-unit">
-            <div id="hours" class="number">0</div>
-            <div class="label">Hours</div>
-        </div>
-        <div class="time-unit">
-            <div id="minutes" class="number">0</div>
-            <div class="label">Minutes</div>
-        </div>
-        <div class="time-unit">
-            <div id="seconds" class="number">0</div>
-            <div class="label">Seconds</div>
-        </div>
+    <div class="sidebar">
+        <img src="logo.png" alt="TELV Logo">
+        <h1>TELV</h1>
     </div>
-    <footer>&copy; 2025 TELV</footer>
+    <div class="main">
+        <div id="countdown">
+            <div class="time-unit">
+                <div id="days" class="number">0</div>
+                <div class="label">Days</div>
+            </div>
+            <div class="time-unit">
+                <div id="hours" class="number">0</div>
+                <div class="label">Hours</div>
+            </div>
+            <div class="time-unit">
+                <div id="minutes" class="number">0</div>
+                <div class="label">Minutes</div>
+            </div>
+            <div class="time-unit">
+                <div id="seconds" class="number">0</div>
+                <div class="label">Seconds</div>
+            </div>
+        </div>
+        <footer>&copy; 2025 TELV</footer>
+    </div>
 
     <script>
         function updateCountdown() {
